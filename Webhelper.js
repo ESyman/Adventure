@@ -2,11 +2,6 @@ var buttonElement = document.getElementById("button1");
 
 window.onload = start;
 
-function start() {
-    setup();
-    intro();
-}
-
 function story(text) {
     var currentStoryElement = document.getElementById("currentStory");
     currentStoryElement.innerHTML = text;
