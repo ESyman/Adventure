@@ -35,6 +35,10 @@ function delayText(text, delay) {
     }, delay);
 }
 
+function start() {
+    setup();
+    intro();
+}
 
 function setup() {
     // setOptions();
