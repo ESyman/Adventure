@@ -361,10 +361,3 @@ function getGiantKey(){
   gotGiantKey = true;
 } else story("You mean the one you're already holding?")
   }
-
-//misc
-
-function start() {
-    setup();
-    intro();
-}
