@@ -870,14 +870,4 @@ function start() {
     intro();
 }
 
-function setup() {
-    // setOptions();
-    setOptions(["test 1", "test 2", "test3"]); 
-    var buttonElement = document.getElementById("button1");
-    buttonElement.innerHTML = "What will you do?"; 
-    buttonElement.onclick = function () {
-    var dropdown = document.getElementById("choices");
-    console.log(dropdown.value);
-    checkAnswers(dropdown.value);
-}
-}
+window.onload = start;
