@@ -1,4 +1,22 @@
-'use strict'
+//start
+function start() {
+    setup();
+    intro();
+}
+
+function setup() {
+    // setOptions();
+    setOptions(["test 1", "test 2", "test3"]); 
+    var buttonElement = document.getElementById("button1");
+    buttonElement.innerHTML = "What will you do?"; 
+    buttonElement.onclick = function () {
+    var dropdown = document.getElementById("choices");
+    console.log(dropdown.value);
+    checkAnswers(dropdown.value);
+}
+}
+
+//'use strict'
 // variables
 var messages = [];
 var choices;
@@ -181,14 +199,14 @@ function checkAnswers(answer) {
           getGiantKey();
           break;
           //other
-        case "LOOK SOUTHMOST DOOR":
+        /*case "LOOK SOUTHMOST DOOR":
           switch(roomLocation){
             case 2:
               lookSouthDoorSou();
               break;
             case 3:
               lookSouthNorDoor();
-          }
+          }*/
           break;
         case "OPEN SOUTHMOST DOOR":
           switch(roomLocation){
@@ -302,16 +320,16 @@ function talkSkeleton(){
     story("You decide to waste your time and talk to a cheap inanimate prop. Great going.");
     skeletonTalk++;
   } else if (skeletonTalk == 3) {
-    story("You get so invested in talking to the fake skeleton to the point where you soon go mad from insanity and pass out. GAME OVER. Play again?")
+    story("You get so invested in talking to the fake skeleton to the point where you soon go mad from insanity and pass out. GAME OVER. Play again?");
     choices = ["Y", "N"];
     answer = setOptions(choices);
   }
 }
 function lookPoster(){
   if (gotPoster == false && gotKey == false) story("It’s a very generic looking poster for… something, like a bunch of numbers. You can’t quite make up your mind on what it’s exactly about. A corner of it seems to be peeling off the wall. Perhaps it’s hiding something? \nSpeaking of hiding, there's a key hiding nearby.");
-  else if (gotPoster == true && gotKey == false) story("The area where the poster used to be is just some remaining bits of torn paper. There's a KEY nearby it, though.")
-  else if (gotPoster == false && gotKey == true) story("It’s a very generic looking poster for… something, like a bunch of numbers. You can’t quite make up your mind on what it’s exactly about. A corner of it seems to be peeling off the wall. Perhaps it’s hiding something?")
-  else if (gotPoster == true && gotKey == true) story("The area where the poster used to be is just some remaining bits of torn paper.")
+  else if (gotPoster == true && gotKey == false) story("The area where the poster used to be is just some remaining bits of torn paper. There's a KEY nearby it, though.");
+  else if (gotPoster == false && gotKey == true) story("It’s a very generic looking poster for… something, like a bunch of numbers. You can’t quite make up your mind on what it’s exactly about. A corner of it seems to be peeling off the wall. Perhaps it’s hiding something?");
+  else if (gotPoster == true && gotKey == true) story("The area where the poster used to be is just some remaining bits of torn paper.");
   choices = ["GET POSTER", "LOOK KEY", "GO BACK"];
   answer = setOptions(choices);
 }
@@ -319,11 +337,11 @@ function getPoster(){
   if (gotPoster == false) {
     story("You peel off the poster and look at what’s behind it, and… it’s nothing. It’s just the wall. Oh well, at least you have that poster with you.");
   gotPoster = true;
-  } else story("You already got the poster, and I don't think you want those remaining bits of torn paper.")
+  } else story("You already got the poster, and I don't think you want those remaining bits of torn paper.");
 }
 function lookKey(){
   if (gotKey == false) story("Well… it’s a key. What do you think it does?");
-  else story("You look at the key that you already grabbed, and then where it was placed priorly.")
+  else story("You look at the key that you already grabbed, and then where it was placed priorly.");
   choices = ["GET KEY", "LOOK POSTER", "GO BACK"];
   answer = setOptions(choices);
 }
@@ -335,7 +353,7 @@ function getKey(){
   if (gotKey == false) {
     story("You grab the key! You're one step closer to escaping this room of boredom.");
     gotKey = true;
-  } else story("How do you get a key you already got?")
+  } else story("How do you get a key you already got?");
 }
 //main room functions
 function mainRoom(){
@@ -375,13 +393,13 @@ function openNorthDoorSou(){
 function lookGloves(){
   if (gotGloves == false) {
     story("They're fairly hard-duty gloves and look like they could lift up something heavy.");
-  } else story("Did you forget they're on your hands or something?")
+  } else story("Did you forget they're on your hands or something?");
 }
 function getGloves(){
   if (gotGloves == false) {
     story("You swipe the gloves and put them on, feeling a lot more powerful. Okay, not a lot but you get what we mean.");
     gotGloves = true;
-  } else story("So you're putting on gloves you already have on?")
+  } else story("So you're putting on gloves you already have on?");
 }
 //northmost Room
 function northmostRoom(){
@@ -392,7 +410,7 @@ answer = setOptions(choices);
 }
 function lookBag(){
   if (gotGiantKey == true){
-    story("You get distracted by the bag with assorted goodies inside, and... oh no! A hand reached out of it and took your giant key, taking it inside the bag. You jump inside it in an attempt to get it back, but now you're trapped in it. Great going. GAME OVER. Play again?")
+    story("You get distracted by the bag with assorted goodies inside, and... oh no! A hand reached out of it and took your giant key, taking it inside the bag. You jump inside it in an attempt to get it back, but now you're trapped in it. Great going. GAME OVER. Play again?");
     choices = ["Y", "N"];
   } else {
     story("It's a bag filled with all sorts of assorted goodies inside. Nobody seems to own it... maybe you could take it?");
@@ -422,15 +440,15 @@ function lookDoorsNor(){
 }*/
 function openEastwardsDoor(){
   if (gotPoster == false) {
-    story("The door is locked with a numberpad on it. You try to figure out it by pressing random numbers but it does nothing. Perhaps something has the code.")
+    story("The door is locked with a numberpad on it. You try to figure out it by pressing random numbers but it does nothing. Perhaps something has the code.");
     checkEasDoor = true;
   }
   else if (gotPoster == true && eastDoor == false && checkEasDoor == false) {
-    story("The door is locked with a numberpad on it. You try to figure out it by pressing random numbers but it does nothing. Perhaps something has that code, like that poster you grabbed. Gee, I wonder if that's the case.")
+    story("The door is locked with a numberpad on it. You try to figure out it by pressing random numbers but it does nothing. Perhaps something has that code, like that poster you grabbed. Gee, I wonder if that's the case.");
     checkEasDoor = true;
   }
   else if (gotPoster == true && eastDoor == false && checkEasDoor == true){
-    story("You decide to look at the poster, and it has a code on it! You enter it in and the door unlocks itself. Congrats.")
+    story("You decide to look at the poster, and it has a code on it! You enter it in and the door unlocks itself. Congrats.");
     eastDoor = true;
     choices = ["CONTINUE"];
     answer = setOptions(choices);
@@ -442,12 +460,12 @@ function openEastwardsDoor(){
 }*/
 function openWestwardsDoor(){
   if (norRoomDoorOne == false){
-    story("You open the door with the key... Only to find out there's another door with a larger keyhole. Drats! You were so close.")
+    story("You open the door with the key... Only to find out there's another door with a larger keyhole. Drats! You were so close.");
     norRoomDoorOne = true;
-  } else if (norRoomDoorOne == true && gotGiantKey == false) story("The key you previously used is far too small to fit into that giant keyhole. Obviously a giant key would fit perfectly in it.")
+  } else if (norRoomDoorOne == true && gotGiantKey == false) story("The key you previously used is far too small to fit into that giant keyhole. Obviously a giant key would fit perfectly in it.");
   else if (norRoomDoorOne == true && gotGiantKey == true){
     story("You fit the giant key into the hole and open the door. You're outside of the basement and can escape now!\
-          YOU WIN! Play again?")
+          YOU WIN! Play again?");
     choices = ["Y", "N"];
     answer = setOptions(choices);
   }
@@ -460,31 +478,13 @@ choices = ["LOOK GIANT KEY", "GET GIANT KEY", "OPEN DOOR"];
 answer = setOptions(choices);
 }
 function lookGiantKey(){
-  if (gotGiantKey == false) story("It's a really large key. Duh.")
-  else story ("It's a really large key and you're holding it.")
+  if (gotGiantKey == false) story("It's a really large key. Duh.");
+  else story ("It's a really large key and you're holding it.");
 }
 function getGiantKey(){
-  if (gotGloves == false && gotGiantKey == false) story("You try to lift it up but it's too heavy for you to hold! Maybe you need to get a buff...")
+  if (gotGloves == false && gotGiantKey == false) story("You try to lift it up but it's too heavy for you to hold! Maybe you need to get a buff...");
   else if (gotGloves == true && gotGiantKey == false){
-  story("Thanks to your gloves, you lift up the key with ease. Now where should you put it?")
+  story("Thanks to your gloves, you lift up the key with ease. Now where should you put it?");
   gotGiantKey = true;
-} else story("You mean the one you're already holding?")
+} else story("You mean the one you're already holding?");
   }
-
-//misc
-function start() {
-    setup();
-    intro();
-}
-
-function setup() {
-    // setOptions();
-    setOptions(["test 1", "test 2", "test3"]); 
-    var buttonElement = document.getElementById("button1");
-    buttonElement.innerHTML = "What will you do?"; 
-    buttonElement.onclick = function () {
-    var dropdown = document.getElementById("choices");
-    console.log(dropdown.value);
-    checkAnswers(dropdown.value);
-}
-}
