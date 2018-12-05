@@ -25,7 +25,6 @@ var answer;
 var roomLocation = 0;
 //var points;
 var skeletonTalk = 1;
-//var back = false;
 var gotClip = false;
 var gotKey = false;
 var haveKey = false;
@@ -55,67 +54,6 @@ function checkAnswers(answer) {
               break;
             case 3:
               eastRoom();
-              /*switch(roomLocation) {
-            case 0:
-              dungeonRoom();
-              break;
-            case 1:
-              mainRoom();
-              break;
-            case 2:
-              northmostRoom();
-              break;'use strict'
-// variables
-var messages = [];
-var choices;
-var answer;
-// story function variables
-var roomLocation = 0;
-//var points;
-var skeletonTalk = 1;
-//var back = false;
-var gotClip = false;
-var gotKey = false;
-var haveKey = false;
-var gotPoster = false;
-var dungeonDoor = false;
-var mainDoor = false;
-var gotGloves = false;
-var gotGiantKey = false;
-var norRoomDoorOne = false;
-var eastDoor = false;
-var checkNorDoor = false;
-var checkEasDoor = false;
-
-function checkAnswers(answer) {
-      switch(answer) {
-        //moving commands
-        case "CONTINUE":
-          switch(roomLocation) {
-            case 0:
-              dungeonRoom();
-              break;
-            case 1:
-              mainRoom();
-              break;
-            case 2:
-              northmostRoom();
-              break;
-            case 3:
-              eastRoom();
-              /*switch(roomLocation) {
-            case 0:
-              dungeonRoom();
-              break;
-            case 1:
-              mainRoom();
-              break;
-            case 2:
-              northmostRoom();
-              break;
-            case 3:
-              eastRoom();
-          }*/
           }
           break;
         // dungeon room
@@ -274,27 +212,27 @@ function checkAnswers(answer) {
 }
   
 //story functions
-function intro(){
+function intro(){ //1.1 - intro
   story("You are HERO!");
   choices = ["CONTINUE"];
   answer = setOptions(choices);
 }
 
 //room functions
-//dungeon room
+//1.2 - dungeon room 
 function dungeonRoom(){
   roomLocation = 1;
 story("You find yourself stuck in a dungeon room. A SKELETON sits nearby you. A POSTER is on the wall. There’s a KEY nearby.");
 choices = ["LOOK SKELETON", "LOOK POSTER", "LOOK DOOR"];
 answer = setOptions(choices);
 }
-function lookDungeonDoor(){
+function lookDungeonDoor(){ //1.2 S2 - Look at dungeon door
   if (dungeonDoor == false) story("It’s a door, and it's locked.");
   else story("It’s a door, and it's clearly unlocked, as you learned.");
   choices = ["OPEN DOOR", "GO BACK"];
 answer = setOptions(choices);
 }
-function openDungeonDoor(){
+function openDungeonDoor(){ // 1.2 S2 C1 - Open dungeon door
   if (gotKey == false) story("You attempt to open the door by doing nothing. Maybe you should find a key.");
   else if (dungeonDoor == false){ 
     story("You use the key, only to find out it doesn’t fit. In your avail, you try moving the knob and find out that it’s already unlocked. I guess that’s one way to go through it.");
@@ -303,19 +241,19 @@ function openDungeonDoor(){
     answer = setOptions(choices);
   } else mainRoom();
 }
-function lookSkeleton(){
+function lookSkeleton(){ // 1.2 S3 - Look at skeleton
   story("It’s a very cheap looking skeleton, like somebody bought it from a thrift shop.");
   choices = ["GET SKELETON", "TALK SKELETON", "GO BACK"];
   answer = setOptions(choices);
 }
-function getSkeleton(){
+function getSkeleton(){ // 1.2 s3 C1 - get skeleton
   if (gotClip == false) {
 story("You try to grab the skeleton but you find out that it’s stuck to the ground. On the plus side, you find a clip in it and you pick it up.");
     gotClip = true;
   } else if (gotGloves == false) story("You try to grab the skeleton, yet again, although nothing happens as it’s stuck to the ground.");
   else if (gotGloves == true) story("Even with the gloves on, it's a futile attempt to try to get the skeleton.");
 }
-function talkSkeleton(){
+function talkSkeleton(){ //1.2 S3 C2 - Talk to skeleton
   if (skeletonTalk < 3){
     story("You decide to waste your time and talk to a cheap inanimate prop. Great going.");
     skeletonTalk++;
@@ -325,7 +263,7 @@ function talkSkeleton(){
     answer = setOptions(choices);
   }
 }
-function lookPoster(){
+function lookPoster(){ //1.2 S4 - look at poster
   if (gotPoster == false && gotKey == false) story("It’s a very generic looking poster for… something, like a bunch of numbers. You can’t quite make up your mind on what it’s exactly about. A corner of it seems to be peeling off the wall. Perhaps it’s hiding something? \nSpeaking of hiding, there's a key hiding nearby.");
   else if (gotPoster == true && gotKey == false) story("The area where the poster used to be is just some remaining bits of torn paper. There's a KEY nearby it, though.");
   else if (gotPoster == false && gotKey == true) story("It’s a very generic looking poster for… something, like a bunch of numbers. You can’t quite make up your mind on what it’s exactly about. A corner of it seems to be peeling off the wall. Perhaps it’s hiding something?");
@@ -333,13 +271,13 @@ function lookPoster(){
   choices = ["GET POSTER", "LOOK KEY", "GO BACK"];
   answer = setOptions(choices);
 }
-function getPoster(){
+function getPoster(){ // 1.2 S4 C1 - get poster
   if (gotPoster == false) {
     story("You peel off the poster and look at what’s behind it, and… it’s nothing. It’s just the wall. Oh well, at least you have that poster with you.");
   gotPoster = true;
   } else story("You already got the poster, and I don't think you want those remaining bits of torn paper.");
 }
-function lookKey(){
+function lookKey(){ //1.2 S5 - look at key
   if (gotKey == false) story("Well… it’s a key. What do you think it does?");
   else story("You look at the key that you already grabbed, and then where it was placed priorly.");
   choices = ["GET KEY", "LOOK POSTER", "GO BACK"];
@@ -349,20 +287,20 @@ function lookKey(){
   if (gotKey == false) story("Well… it’s a key. What do you think it does?");
   else story("You mean the one you already grabbed?")
 }*/
-function getKey(){
+function getKey(){ //1.2 S5 C1 - get key
   if (gotKey == false) {
     story("You grab the key! You're one step closer to escaping this room of boredom.");
     gotKey = true;
   } else story("How do you get a key you already got?");
 }
-//main room functions
+//1.3 - main room
 function mainRoom(){
   roomLocation = 2;
 story("You're now in what appears to be somebody's basement. Perhaps that last room wasn't a dungeon but a really poorly kept room. There's a door to the SOUTH leading back into said room, as well as another door to the NORTH. There are some GLOVES nearby.");
 choices = ["LOOK GLOVES", "GET GLOVES", "LOOK DOORS"];
 answer = setOptions(choices);
 }
-function lookDoorsSou(){
+function lookDoorsSou(){ //1.3 S2 - look at doors
   if (mainDoor == false) story("There are two doors in the room; one that leads back the way you came (southwards) and one that goes forwards (northwards), although it looks like it's jammed shut.");
   else story("There are two doors in the room; one that leads back the way you came (southwards) and one that goes forwards (northwards).");
   choices = ["OPEN SOUTHMOST DOOR", "OPEN NORTHMOST DOOR", "GO BACK"];
@@ -374,7 +312,7 @@ answer = setOptions(choices);
 function lookNorthDoorSou(){
   story("Did you forget what doors look like or are you just intentionally wasting your time?");
 }*/
-function openNorthDoorSou(){
+function openNorthDoorSou(){ //1.3 S2 C1 - open northmost door
   if (gotClip == false && mainDoor == false){
     story("It's locked, and that key isn't doing any good. Perhaps there's something else of use in another room.");
     checkNorDoor = true;
@@ -390,25 +328,25 @@ function openNorthDoorSou(){
     answer = setOptions(choices);
   } else northmostRoom();
 }
-function lookGloves(){
+function lookGloves(){ //1.3 C1 - look at gloves
   if (gotGloves == false) {
     story("They're fairly hard-duty gloves and look like they could lift up something heavy.");
   } else story("Did you forget they're on your hands or something?");
 }
-function getGloves(){
+function getGloves(){ //1.3 C2 - get gloves
   if (gotGloves == false) {
     story("You swipe the gloves and put them on, feeling a lot more powerful. Okay, not a lot but you get what we mean.");
     gotGloves = true;
   } else story("So you're putting on gloves you already have on?");
 }
-//northmost Room
+//1.4 - northmost Room
 function northmostRoom(){
   roomLocation = 3;
 story("You find yourself in another generic room. There's a locked DOOR to the east, another DOOR to the west, and a door in the SOUTH, which is already unlocked. There’s a BAG on the ground.");
 choices = ["LOOK BAG", "LOOK DOORS", "GO SOUTH"];
 answer = setOptions(choices);
 }
-function lookBag(){
+function lookBag(){ // 1.4 S3 - look at bag
   if (gotGiantKey == true){
     story("You get distracted by the bag with assorted goodies inside, and... oh no! A hand reached out of it and took your giant key, taking it inside the bag. You jump inside it in an attempt to get it back, but now you're trapped in it. Great going. GAME OVER. Play again?");
     choices = ["Y", "N"];
@@ -418,18 +356,18 @@ function lookBag(){
   }
 answer = setOptions(choices);
 }
-function getBag(){
+function getBag(){ //1.4 S3 C1 - get bag
   story("You try to grab the bag, but before you do, a hand reaches out of it, grabbing you in the process and stuffing you into it. GAME OVER. Play again?");
 choices = ["Y", "N"];
 answer = setOptions(choices);
 }
-function getGoodies(){
+function getGoodies(){  //1.4 S3 C1 - get goodies
   story("You try to grab some of the goodies within the bag, but before you do, a hand reaches out of it, grabbing you in the process and stuffing you into it. GAME OVER. Play again?");
 choices = ["Y", "N"];
 answer = setOptions(choices);
 }
 
-function lookDoorsNor(){
+function lookDoorsNor(){ //1.4 S2 - look doors
   story("There's a selection of three doors; one to the east that has a keypad on it and one to the west that has a lockhole on it. Oops, did we say three? We meant two.");
   choices = ["OPEN EASTWARDS DOOR", "OPEN WESTWARDS DOOR", "GO BACK"];
   answer = setOptions(choices);
@@ -438,7 +376,7 @@ function lookDoorsNor(){
 /*function lookEastwardsDoor(){
   story("It's a door that has a keypad on it.")
 }*/
-function openEastwardsDoor(){
+function openEastwardsDoor(){ //1.4 S2 C1 - open eastwards door
   if (gotPoster == false) {
     story("The door is locked with a numberpad on it. You try to figure out it by pressing random numbers but it does nothing. Perhaps something has the code.");
     checkEasDoor = true;
@@ -458,7 +396,7 @@ function openEastwardsDoor(){
   if (norRoomDoorOne == false) story("Well... it's a door with a keyhole on it. What do you think it is by now?")
   else story("Well... it's a door with a giant keyhole on it. What do you think it is by now?")
 }*/
-function openWestwardsDoor(){
+function openWestwardsDoor(){ //1.4 S2 C2 - open westwards door
   if (norRoomDoorOne == false){
     story("You open the door with the key... Only to find out there's another door with a larger keyhole. Drats! You were so close.");
     norRoomDoorOne = true;
@@ -470,18 +408,18 @@ function openWestwardsDoor(){
     answer = setOptions(choices);
   }
 }
-//east room
+//1.5 - east room
 function eastRoom(){
   roomLocation = 4;
 story("You find yourself in an empty room, minus the GIANT KEY in the middle of it. The door leads back to the room you came from.");
 choices = ["LOOK GIANT KEY", "GET GIANT KEY", "OPEN DOOR"];
 answer = setOptions(choices);
 }
-function lookGiantKey(){
+function lookGiantKey(){ //1.5 C1 - look at giant key
   if (gotGiantKey == false) story("It's a really large key. Duh.");
   else story ("It's a really large key and you're holding it.");
 }
-function getGiantKey(){
+function getGiantKey(){ //1.5 C2 - get giant key
   if (gotGloves == false && gotGiantKey == false) story("You try to lift it up but it's too heavy for you to hold! Maybe you need to get a buff...");
   else if (gotGloves == true && gotGiantKey == false){
   story("Thanks to your gloves, you lift up the key with ease. Now where should you put it?");
