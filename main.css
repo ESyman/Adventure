@@ -1,9 +1,9 @@
 html {
-    background-color: rgb(0, 0, 0);
+    background-image: url("concrete.jpg");
 }
 div{
     border: 2px solid black;
-    background-color: rgb(47, 70, 45);
+    background-color: rgb(92, 92, 61);
     padding: 10px;
     border-radius: 25px;
     width: 60%;
@@ -14,7 +14,7 @@ div{
 p {
     border-radius: 5px;
     font-size: 25px;
-    background-color: rgb(212, 239, 223  );
+    background-color: rgb(235, 235, 224);
     padding:2px;
     margin-top: 29px;
     margin-bottom: 20px;
@@ -27,7 +27,7 @@ p {
 select {
     width: 95%;
     font-size: 25px;
-    background-color: rgb(212, 239, 223  );
+    background-color: rgb(235, 235, 224);
     padding-top: 0px;
     margin-top: 2px;
     margin-bottom: 9px;
@@ -39,7 +39,7 @@ button {
     width: 95%;
     height: 90px;
     font-size: 25px;
-    background-color: rgb(212, 239, 223  );
+    background-color: rgb(235, 235, 224);
     margin-top: 2px;
     margin-bottom: 9px;
     margin-right: 19px;
